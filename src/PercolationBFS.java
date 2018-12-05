@@ -25,21 +25,28 @@ public class PercolationBFS extends PercolationDFSFast {
 			int deqCol = p % myGrid.length;
 
 			// for(int k=0; k < rowDelta.length; k++){
+			
+			if(inBounds((deqRow) - 1, (deqCol))) {
 			if (isOpen((deqRow) - 1, (deqCol)) && !isFull((deqRow) - 1, (deqCol))) myGrid[(deqRow) - 1][deqCol] = FULL;
 			qp.add(myGrid[(deqRow) - 1][deqCol]);
-
+			}
+			
+			if (inBounds((deqRow) + 1, (deqCol))){
 			if (isOpen((deqRow) + 1, (deqCol)) && !isFull((deqRow) + 1, (deqCol))) myGrid[(deqRow) - 1][deqCol] = FULL;
 			qp.add(myGrid[(deqRow) + 1][deqCol]);
-
+			}
+			
+			if(inBounds((deqRow), (deqCol) + 1)) {
 			if (isOpen((deqRow), (deqCol) + 1) && !isFull((deqRow), (deqCol) + 1)) myGrid[(deqRow)][(deqCol) + 1] = FULL;
 			// size++;
 			qp.add(myGrid[deqRow][(deqCol) + 1]);
-
+			}
+			
+			if(inBounds((deqRow), (deqCol) - 1)) {
 			if (isOpen((deqRow), (deqCol) - 1) && !isFull((deqRow), (deqCol) - 1)) myGrid[(deqRow)][(deqCol) - 1] = FULL;
 			// size++;
 			qp.add(myGrid[deqRow][deqCol - 1]);
-			// row = p.row + rowDelta[k];
-			// col = p.col + colDelta[k];
+			}
 
 		}
 
