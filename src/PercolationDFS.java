@@ -74,7 +74,7 @@ public class PercolationDFS implements IPercolate {
 			}
 		}
 	}
-
+    
 	protected void updateOnOpen(int row, int col) {
 		clearFull();
 		for (int k = 0; k < myGrid[0].length; k++)
