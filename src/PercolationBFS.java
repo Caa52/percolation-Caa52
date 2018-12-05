@@ -17,7 +17,7 @@ public class PercolationBFS extends PercolationDFSFast {
 		Queue<Integer> qp = new LinkedList<Integer>();
 		myGrid[row][col] = FULL;
 		// size++; // count pixel
-		qp.add(myGrid[row][col]);
+		qp.add((row*myGrid.length)+col);
 
 		while (qp.size() != 0) {
 			Integer p = qp.remove();
@@ -25,27 +25,32 @@ public class PercolationBFS extends PercolationDFSFast {
 			int deqCol = p % myGrid.length;
 
 			// for(int k=0; k < rowDelta.length; k++){
-			
-			if(inBounds((deqRow) - 1, (deqCol))) {
-			if (isOpen((deqRow) - 1, (deqCol)) && !isFull((deqRow) - 1, (deqCol))) myGrid[(deqRow) - 1][deqCol] = FULL;
-			qp.add(myGrid[(deqRow) - 1][deqCol]);
+			//row*myGrid.length + col
+
+			if (inBounds((deqRow) - 1, (deqCol))) {
+				if (isOpen((deqRow) - 1, (deqCol)) && !isFull((deqRow) - 1, (deqCol)))
+					myGrid[(deqRow) - 1][deqCol] = FULL;
+				qp.add((row*myGrid.length)+col);
 			}
-			
-			if (inBounds((deqRow) + 1, (deqCol))){
-			if (isOpen((deqRow) + 1, (deqCol)) && !isFull((deqRow) + 1, (deqCol))) myGrid[(deqRow) - 1][deqCol] = FULL;
-			qp.add(myGrid[(deqRow) + 1][deqCol]);
+
+			if (inBounds((deqRow) + 1, (deqCol))) {
+				if (isOpen((deqRow) + 1, (deqCol)) && !isFull((deqRow) + 1, (deqCol)))
+					myGrid[(deqRow) - 1][deqCol] = FULL;
+				qp.add((row*myGrid.length)+col);
 			}
-			
-			if(inBounds((deqRow), (deqCol) + 1)) {
-			if (isOpen((deqRow), (deqCol) + 1) && !isFull((deqRow), (deqCol) + 1)) myGrid[(deqRow)][(deqCol) + 1] = FULL;
-			// size++;
-			qp.add(myGrid[deqRow][(deqCol) + 1]);
+
+			if (inBounds((deqRow), (deqCol) + 1)) {
+				if (isOpen((deqRow), (deqCol) + 1) && !isFull((deqRow), (deqCol) + 1))
+					myGrid[(deqRow)][(deqCol) + 1] = FULL;
+				// size++;
+				qp.add((row*myGrid.length)+col);
 			}
-			
-			if(inBounds((deqRow), (deqCol) - 1)) {
-			if (isOpen((deqRow), (deqCol) - 1) && !isFull((deqRow), (deqCol) - 1)) myGrid[(deqRow)][(deqCol) - 1] = FULL;
-			// size++;
-			qp.add(myGrid[deqRow][deqCol - 1]);
+
+			if (inBounds((deqRow), (deqCol) - 1)) {
+				if (isOpen((deqRow), (deqCol) - 1) && !isFull((deqRow), (deqCol) - 1))
+					myGrid[(deqRow)][(deqCol) - 1] = FULL;
+				// size++;
+				qp.add((row*myGrid.length)+col);
 			}
 
 		}
