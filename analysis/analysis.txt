@@ -5,42 +5,43 @@ Copy/Paste results from PercolationStats using PercolationDFS
 
 simulation data for 20 trials
 grid	mean	stddev	time
-100	0.593	0.014	3.797
-200	0.591	0.010	41.196
+100	0.593	0.014	2.063
+200	0.591	0.010	18.418
 
-
+(running DFS was so slow that it took a while for me to get the data)
 
 Copy/Paste results from PercolationStats using PercolationDFSFast
 
 simulation data for 20 trials
 grid	mean	stddev	time
-100	0.593	0.014	0.412
-200	0.591	0.010	0.534
-400	0.590	0.006	3.114
-800	0.594	0.004	19.440
-
+100	0.593	0.014	0.243
+200	0.591	0.010	0.324
+400	0.590	0.006	1.673
+800	0.594	0.004	11.187
 
 Copy/Paste results from PercolationStats using PercolationBFS
 
 simulation data for 20 trials
 grid	mean	stddev	time
-100	0.593	0.014	1.819
-200	0.591	0.010	18.940
+100	0.593	0.014	0.269
+200	0.591	0.010	0.423
+400	0.590	0.006	1.401
+800	0.594	0.004	8.427
+
 
 Copy/Paste results from PercolationStats using PercolationUF 
 with the QuickUWPC UnionFind implementation.
-
 simulation data for 20 trials
 grid	mean	stddev	time
-100	0.593	0.014	0.256
-200	0.591	0.010	0.393
-400	0.590	0.006	1.725
-800	0.594	0.004	10.910
-1600	0.592	0.002	59.178
+100	0.593	0.014	0.204
+200	0.591	0.010	0.314
+400	0.590	0.006	1.055
+800	0.594	0.004	7.456
+1600	0.592	0.002	47.494
 
 
 1. How does doubling the grid size affect running time (keeping # trials fixed)
-    - Doubling grid size makes the runnig time bigger 
+    - Doubling grid size makes the running time bigger 
 
 2. How does doubling the number of trials affect running time.
 
@@ -48,23 +49,23 @@ grid	mean	stddev	time
 
 3. Estimate the largest grid size you can run in 24 hours with 20 trials. Explain your reasoning.
 - 
-To answer this question, i will multiply the number of milliseconds in a day by the run time for each of the percolation
-constructors 
+To answer this question, i will set the time for a day equal to the grid. the grid represents my x and the time in a day 
+represents my y. In doing this, I used for different grids and estimated how many i will need to run in a day
 1 day = 86,400,000 ms
 
 For Percolation DFS
     grid size = n
 	86400000 = 3E-07 n^5
-	gird size = 779
+	gird size is approximately 3000
 	
 for percolation DFSFast
     grid size = n
 	86400000 = 0.00006n^3
-	grid size = 11,292
+	grid size is approximately 11,000
 
 	
 For QuickUWPC in percolation UF
     grid size = n
 	86400000 = (1x10^-5)n^3
-	grid size = 20,519
+	grid size is approximately 20,000
 
