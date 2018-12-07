@@ -40,7 +40,7 @@ grid	mean	stddev	time
 
 
 1. How does doubling the grid size affect running time (keeping # trials fixed)
-    - Doubling grid size does not change the running time 
+    - Doubling grid size makes the runnig time bigger 
 
 2. How does doubling the number of trials affect running time.
 
@@ -52,7 +52,7 @@ To answer this question, i will multiply the number of milliseconds in a day by 
 constructors 
 1 day = 86,400,000 ms
 
-For Percolatio DFS
+For Percolation DFS
     grid size = n
 	86400000 = 3E-07 n^5
 	gird size = 779

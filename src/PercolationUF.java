@@ -36,10 +36,14 @@ public class PercolationUF implements IPercolate {
 		if (!inBounds(row, col)) {
 			throw new IndexOutOfBoundsException();
 		}
+		if(isOpen(row, col)) {
+			myOpenCount++;
+		}
 
 		if (!isOpen(row, col)) {
 			myGrid[row][col] = true;
-
+		
+			
 			if (row == 0) {
 				myFinder.union(row * myGrid.length + col, VTOP);
 
@@ -82,8 +86,8 @@ public class PercolationUF implements IPercolate {
 		// TODO Auto-generated method stub
 		if (!inBounds(row, col))
 			throw new IndexOutOfBoundsException();
-		if (myFinder.connected((row * myGrid.length + col), VTOP))
-			;
+		if (myFinder.connected((row * myGrid.length + col), VTOP));
+			
 		return true;
 
 	}
@@ -100,7 +104,18 @@ public class PercolationUF implements IPercolate {
 	@Override
 	public int numberOfOpenSites() {
 		// TODO Auto-generated method stub
+		int myOpenCount =0;
+		for (int row=0; row<myGrid.length; row++) {
+			for (int col =0; col<myGrid.length;col++) {
+				if (isOpen(row, col) == true) {
+					myOpenCount++;
+				}
+			}
+		}
+		
 		return myOpenCount;
+		
+	
 	}
 
 	
