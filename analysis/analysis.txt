@@ -1,22 +1,70 @@
-Your name
-Your netid
+Collins Abanda
+caa52
 
 Copy/Paste results from PercolationStats using PercolationDFS
+
+simulation data for 20 trials
+grid	mean	stddev	time
+100	0.593	0.014	3.797
+200	0.591	0.010	41.196
+
 
 
 Copy/Paste results from PercolationStats using PercolationDFSFast
 
+simulation data for 20 trials
+grid	mean	stddev	time
+100	0.593	0.014	0.412
+200	0.591	0.010	0.534
+400	0.590	0.006	3.114
+800	0.594	0.004	19.440
+
 
 Copy/Paste results from PercolationStats using PercolationBFS
 
+simulation data for 20 trials
+grid	mean	stddev	time
+100	0.593	0.014	1.819
+200	0.591	0.010	18.940
 
 Copy/Paste results from PercolationStats using PercolationUF 
 with the QuickUWPC UnionFind implementation.
 
-1. How does doubling the grid size affect running time (keeping # trials fixed)
+simulation data for 20 trials
+grid	mean	stddev	time
+100	0.593	0.014	0.256
+200	0.591	0.010	0.393
+400	0.590	0.006	1.725
+800	0.594	0.004	10.910
+1600	0.592	0.002	59.178
 
+
+1. How does doubling the grid size affect running time (keeping # trials fixed)
+    - Doubling grid size does not change the running time 
 
 2. How does doubling the number of trials affect running time.
 
+	- Doubling the number of trials increases the running time 
 
 3. Estimate the largest grid size you can run in 24 hours with 20 trials. Explain your reasoning.
+- 
+To answer this question, i will multiply the number of milliseconds in a day by the run time for each of the percolation
+constructors 
+1 day = 86,400,000 ms
+
+For Percolatio DFS
+    grid size = n
+	86400000 = 3E-07 n^5
+	gird size = 779
+	
+for percolation DFSFast
+    grid size = n
+	86400000 = 0.00006n^3
+	grid size = 11,292
+
+	
+For QuickUWPC in percolation UF
+    grid size = n
+	86400000 = (1x10^-5)n^3
+	grid size = 20,519
+
